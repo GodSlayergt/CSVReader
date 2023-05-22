@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+	<title>CSV Reader</title>
+</head>
+<body>
+	<main>
+		<header>
+            <div id="home-button">
+                <a href="/">Home</a>
+            </div>
+            <form id="searchForm" action="javascript:search();">
+                <div>
+                   <input type="text" id="searchItem" placeholder="Search data...">
+                   <button id="go" type="button" 
+                        onclick="document.getElementById('searchForm').submit();">Go
+                   </button>
+                </div>
+             </form>
+			 <div>
+				<p id="total-rows">Total Rows: <%= csvData.length%></p>
+			 </div>
+        </header>
+		<div id='table-container'>
+			<table style="width:100%">
+				<tr>
+					<% for (const [key, value] of Object.entries(csvData[0])) { %>
+					   <th><%= key %></th>
+					<% } %>
+				</tr>
+				<% for(let i=0;i<csvData.length;i++) { %>
+				<tr id="row-<%= i %>">
+					<% for(const [key, value] of Object.entries(csvData[i])) { %>
+					    <td class="col-md-2"><%= value %></td>
+				    <% } %>
+				</tr>
+				<% } %>
+			</table>
+		</div>
+	</main>
+	<script type="text/javascript" src="/search.js"></script>
+</body>
+</html>

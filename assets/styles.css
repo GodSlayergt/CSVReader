@@ -1,0 +1,27 @@
+main{
+	text-align: center;
+}
+
+.file{
+	display: flex;
+	justify-content: center;
+	column-gap: 10px;
+	margin-bottom: 10px;
+}
+
+table, th, td {
+	border: 1px solid black;
+  }
+
+  table{
+	margin-top:7px;
+  }
+  header{
+	width: 450px;
+	display: flex;
+	justify-content: space-between;
+  }
+
+  p{
+	margin: 0;
+  }
